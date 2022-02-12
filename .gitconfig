@@ -1,0 +1,82 @@
+[user]
+
+	name = Colin O'Dell
+	signingkey = 60A4DAD272A01CB8
+	email = codell@wayfair.com
+
+[core]
+
+	editor = vim
+
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+[help]
+
+	# Automatically correct and execute mistyped commands.
+	autocorrect = 1
+
+[alias]
+
+	# Perform an automated 'git commit --fixup' and autosquash
+	fixup = !sh -c 'REV=$(git rev-parse $1) && git commit -n --fixup $@ && git rebase -i --autostash --autosquash $REV^' -
+
+	# https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged#comment76417273_21857717
+	cleanup = "!git branch --merged | grep -v -E '^\\*|master|develop|main' | xargs -n1 -r git branch -d"
+
+	p = "!git pull --rebase --autostash"
+
+	children = "!bash -c 'c=${1:-HEAD}; set -- $(git rev-list --all --not \"$c\"^@ --children | grep $(git rev-parse \"$c\") ); shift; echo $1' -"
+
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+[branch]
+
+	# Show most recently changed branches first.
+	sort = -committerdate
+
+[filter "lfs"]
+
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[commit]
+
+	gpgsign = true
+
+[tag]
+
+	gpgSign = true
+
+[init]
+
+	defaultBranch = main
+
+# URL shorthands
+
+[url "git@github.com:"]
+
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+
+	insteadOf = "gist:"
