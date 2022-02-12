@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Where all my projects live
 export WORKSPACE_DIR=$HOME/Projects;
@@ -40,7 +40,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1;
 export COMPOSER_MEMORY_LIMIT=-1
 
 # Add more directories to $PATH
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
   export PATH="$PATH:$HOME/Library/Python/3.8/bin";
 fi
 
