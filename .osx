@@ -75,7 +75,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-# defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -142,6 +142,9 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom right screen corner → Show application windows
 defaults write com.apple.dock wvous-br-corner -int 3
 defaults write com.apple.dock wvous-br-modifier -int 0
+
+# Dock: auto-hide so it stops sticking to the secondary monitor
+defaults write com.apple.dock autohide -int 1
 
 ###############################################################################
 # Power management                                                            #
