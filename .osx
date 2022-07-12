@@ -143,8 +143,8 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-br-corner -int 3
 defaults write com.apple.dock wvous-br-modifier -int 0
 
-# Dock: auto-hide so it stops sticking to the secondary monitor
-defaults write com.apple.dock autohide -int 1
+# Dock: Don't auto-hide
+defaults write com.apple.dock autohide -int 0
 
 ###############################################################################
 # Power management                                                            #
