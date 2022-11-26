@@ -102,15 +102,6 @@ source $HOME/.exports
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-source $HOME/.aliases
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -119,4 +110,5 @@ autoload -U compinit; compinit
 ws() { cd $WORKSPACE_DIR/$1 }
 compdef '_path_files -W "$WORKSPACE_DIR" -/ -g "$WORKSPACE_DIR/*"' ws
 
+source $HOME/.aliases
 [[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
