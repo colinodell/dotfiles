@@ -119,6 +119,4 @@ autoload -U compinit; compinit
 ws() { cd $WORKSPACE_DIR/$1 }
 compdef '_path_files -W "$WORKSPACE_DIR" -/ -g "$WORKSPACE_DIR/*"' ws
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
