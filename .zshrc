@@ -103,7 +103,11 @@ source $HOME/.exports
 # export ARCHFLAGS="-arch x86_64"
 
 
+# Enable iTerm2 shell integrations unless we're using Warp
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+
 
 # https://wayfair.slack.com/archives/CDJNHHE94/p1638554379118000?thread_ts=1638554355.117900&cid=CDJNHHE94
 autoload -U compinit; compinit
