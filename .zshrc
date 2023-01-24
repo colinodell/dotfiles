@@ -108,6 +108,9 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
 
 # https://wayfair.slack.com/archives/CDJNHHE94/p1638554379118000?thread_ts=1638554355.117900&cid=CDJNHHE94
 autoload -U compinit; compinit
