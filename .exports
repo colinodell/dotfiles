@@ -44,5 +44,6 @@ if [ "$(uname)" = "Darwin" ]; then
 
   export PATH="$PATH:$HOME/Library/Python/3.9/bin";
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
+  export PATH="$PATH:/opt/homebrew/bin";
 fi
 
