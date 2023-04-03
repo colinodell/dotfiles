@@ -42,7 +42,7 @@ if [ "$(uname)" = "Darwin" ]; then
   # Hide the “default interactive shell is now zsh” warning on macOS.
   export BASH_SILENCE_DEPRECATION_WARNING=1;
 
-  export PATH="$PATH:$HOME/Library/Python/3.8/bin";
+  export PATH="$PATH:$HOME/Library/Python/3.9/bin";
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH";
 fi
 
