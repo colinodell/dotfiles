@@ -11,4 +11,4 @@ alias c="composer"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 
-alias mamba="docker pull wayfair/mamba:latest && docker run -it wayfair/mamba:latest"
+alias phpc="docker compose -f docker-compose.yml -f docker-compose.macos.yml exec php"
