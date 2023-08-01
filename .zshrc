@@ -120,6 +120,7 @@ compdef '_path_files -W "$WORKSPACE_DIR" -/ -g "$WORKSPACE_DIR/*"' ws
 source $HOME/.aliases
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
+[[ -f ~/.letsgo/bin/letsgo ]] && source ~/.letsgo/config/shell/zsh/setup.completion.zsh
 
 # Load starship
 eval "$(starship init zsh)"
