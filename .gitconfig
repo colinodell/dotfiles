@@ -80,3 +80,9 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[rerere]
+	enabled = true
+
+[diff]
+	algorithm = histogram
