@@ -19,9 +19,7 @@ $nodejs\
 $php\
 $python\
 $rust\
-[](fg:#86BBD8 bg:#414141)\
-$docker_context\
-[](fg:#414141 bg:#82d170)\
+[](fg:#86BBD8 bg:#82d170)\
 $time\
 $character\
 """
@@ -65,11 +63,6 @@ truncation_symbol = "…/"
 symbol = "C "
 style = "bg:#86BBD8 fg:#414141"
 format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#414141"
-format = '[ $symbol $context ]($style)'
 
 [git_branch]
 symbol = ""
