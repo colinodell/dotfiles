@@ -1,0 +1,51 @@
+plugins:
+  # Defines a plugin to provide a `ctrl-l` shortcut to tail the logs while in pod view.
+  logs:
+    # Define a mnemonic to invoke the plugin
+    shortCut: Ctrl-L
+    # What will be shown on the K9s menu
+    description: Pod logs
+    # Collections of views that support this shortcut.
+    scopes:
+    - po
+    # The command to run upon invocation.
+    command: kubectl
+    # Whether to run the command in background mode
+    background: false
+    # Defines the command arguments
+    args:
+    - logs
+    - -f
+    - $NAME
+    - -n
+    - $NAMESPACE
+    - --context
+    - $CONTEXT
+  netshoot-pod:
+    shortCut: Shift-D
+    description: Debug Pod with Netshoot
+    dangerous: true
+    scopes:
+      - po
+    command: bash
+    background: false
+    args:
+      - "-c"
+      - |
+        envGlobal=$(kubectl get configmap/env-global -n $NAMESPACE --context $CONTEXT -o go-template='{{range $k,$v:=.data}}{{printf " --env %s=%s" $k $v}}{{end}}' 2>/dev/null || echo "")
+        exec kubectl debug $NAME -it --image=nicolaka/netshoot --profile=sysadmin -n $NAMESPACE --context $CONTEXT $envGlobal
+  netshoot-container:
+    shortCut: Shift-D
+    description: Debug Container with Netshoot
+    dangerous: true
+    scopes:
+      - containers
+    command: bash
+    background: false
+    confirm: true
+    args:
+      - "-c"
+      - |
+        envGlobal=$(kubectl get configmap/env-global -n $NAMESPACE --context $CONTEXT -o go-template='{{range $k,$v:=.data}}{{printf " --env %s=%s" $k $v}}{{end}}' 2>/dev/null || echo "")
+        exec kubectl debug -it --context $CONTEXT -n=$NAMESPACE $POD --target=$NAME --image=nicolaka/netshoot:v0.12 --share-processes --profile=sysadmin $envGlobal
+
