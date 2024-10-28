@@ -12,3 +12,13 @@ alias c="composer"
 alias reload="exec ${SHELL} -l"
 
 alias phpc="docker compose -f docker-compose.yml -f docker-compose.macos.yml exec php"
+
+# git stuff
+alias ga="git add -p"
+alias gc="git commit"
+alias gp="git pull"
+alias gr="git rebase --autostash origin/$(git rev-parse --verify --quiet origin/main && echo 'main' || echo 'master')"
+alias gri="gr -i"
+alias grc="git rebase --continue"
+alias gra="git rebase --abort"
+alias gf="git fixup"

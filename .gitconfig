@@ -35,6 +35,8 @@
 	# Show the user email for the current repository.
 	whoami = config user.email
 
+	set-upstream = "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
+
 [branch]
 
 	# Show most recently changed branches first.
