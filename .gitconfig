@@ -83,8 +83,9 @@
 
 	insteadOf = "gist:"
 
+[rebase]
+	abbreviateCommands = true
 [rerere]
 	enabled = true
-
 [diff]
 	algorithm = histogram
