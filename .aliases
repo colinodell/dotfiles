@@ -6,6 +6,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# cd to repo root
+cdr() { cd "$(git rev-parse --show-toplevel)" }
+
 alias c="composer"
 
 # Reload the shell (i.e. invoke as a login shell)
@@ -17,7 +20,7 @@ alias phpc="docker compose -f docker-compose.yml -f docker-compose.macos.yml exe
 alias ga="git add -p"
 alias gc="git commit"
 alias gp="git pull"
-alias gr="git rebase --autostash origin/$(git rev-parse --verify --quiet origin/main > /dev/null && echo 'main' || echo 'master')"
+gr() { git rebase --autostash "origin/$(git rev-parse --verify --quiet origin/main > /dev/null && echo 'main' || echo 'master')" }
 alias gri="gr -i"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
