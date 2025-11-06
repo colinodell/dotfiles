@@ -59,7 +59,7 @@
 
 [init]
 
-	defaultBranch = main
+	defaultbranch = main
 
 # URL shorthands
 
@@ -89,3 +89,5 @@
 	enabled = true
 [diff]
 	algorithm = histogram
+[push]
+	autoSetupRemote = 1
